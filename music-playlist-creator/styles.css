@@ -1,0 +1,211 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+}
+
+header, footer {
+    width: 100%;
+    background: linear-gradient(90deg, #d60017, #ff6b6b);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #be0808, #fa7e7e);
+    position: sticky;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+}
+
+nav ul li a i {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #e82828;
+    color: #fefefe; /* Change hover text color to make it stand out */
+}
+
+nav ul li a:hover i {
+    transform: scale(1.1);
+}
+
+nav ul li.separator {
+    height: 60px; /* Adjust height as needed */
+    width: 1px;
+    background-color: #fff;
+    margin: 0 15px;
+}
+
+main {
+    flex: 1; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.playlist-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.featured-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.playlist-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    text-align: center;
+    padding: 20px;
+    margin-right: 20px; 
+}
+
+.playlist-art {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.playlist-name {
+    font-size: 1.5em;
+    margin: 20px 0;
+    color: #333;
+}
+
+.playlist-creator {
+    color: #777;
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.song-list {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width:100%;
+    height: 80%;
+    left: 0;
+    right: 0;
+    background-color: #ffe6e6;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.3s;
+    overflow-y: auto; 
+    max-height: calc(100vh - 200px); 
+    justify-content: center;
+}
+
+.song-list:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.song-list ul {
+    list-style-type: none;
+    padding: 30px;
+    margin: 5% auto;
+}
+
+.song-list li {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.song-list li img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.song-title {
+    flex: 2;
+    font-size: 1em;
+    color: #333;
+}
+
+.song-artist, .song-duration {
+    flex: 1;
+    text-align: center;
+    color: #777;
+}
+
+#songs {
+    margin: 0;
+}

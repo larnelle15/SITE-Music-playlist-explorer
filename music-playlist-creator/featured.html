@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Music Playlist Explorer</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1> Music Playlist Explorer</h1>
-        <input id="search" type="text" placeholder="Search..">
+        <h1>Music Playlist Explorer</h1>
     </header>
  
     <nav class="nav">
@@ -24,32 +21,25 @@
         </ul>
     </nav>
 
-    <main> 
-        <section class="playlist-gallery">
-            <div id="container"></div>
-
-            <div class="modal-overlay" id="modal-overlay">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <img id="playlist_art" src="" alt="Playlist Image">
-                    <h1 id="playlist_name"></h1>
-                    <p id="playlist_creator"></p>
-                    <p id="likeCount"></p>
-                    <ul id="songs"></ul>
-                    <button id="shuffle-btn">Shuffle</button>
-                </div>
+    <main>
+        <section class="playlist-detail">
+            <div class="playlist-info">
+                <img id="playlist_art" class="playlist-art" src="" alt="Playlist Image">
+                <h2 id="playlist_name" class="playlist-name"></h2>
+                <p id="playlist_creator" class="playlist-creator"></p>
+                <p id="likeCount" class="playlist-likes"></p>
             </div>
-
-            
+            <div class="song-list">
+                <ul id="songs"></ul>
+            </div>
         </section>
     </main>
         
-   
     <footer>
         <p>&copy; 2024 Larnelle Music App. All rights reserved.</p>
     </footer>
 
     <script src="data/data.js"></script>
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
