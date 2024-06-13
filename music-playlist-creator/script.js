@@ -4,8 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const span = document.getElementsByClassName("close")[0];
     const likeBtn = document.getElementById("like-btn");
     const shuffleBtn = document.getElementById("shuffle-btn");
+    const search = document.getElementById("search");
+    const sortBtn = document.querySelector("button[onclick='sortList()']");
 
-    let currentPlaylist = null; // Define currentPlaylist
+    let currentPlaylist = null; 
 
     span.onclick = function() {
         modal.style.display = "none";
@@ -18,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function openModal(playlist) {
-        currentPlaylist = playlist; // Set currentPlaylist
+        currentPlaylist = playlist; 
 
         document.getElementById('playlist_name').innerText = playlist.playlist_name;
         document.getElementById('playlist_art').src = playlist.playlist_art;
@@ -39,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('songs').innerHTML = songsHTML;
         modal.style.display = "block";
 
-        // Update like button state
+        
         likeBtn.classList.toggle('liked', playlist.liked);
         likeBtn.onclick = function() {
             playlist.liked = !playlist.liked;
@@ -55,28 +57,27 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    // Helper function to shuffle playlist songs
     function shufflePlaylist(playlist) {
         let currentIndex = playlist.songs.length, randomIndex;
 
-        // While there remain elements to shuffle...
+        
         while (currentIndex != 0) {
-            // Pick a remaining element...
+            
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex--;
 
-            // And swap it with the current element.
+            
             [playlist.songs[currentIndex], playlist.songs[randomIndex]] = [
                 playlist.songs[randomIndex], playlist.songs[currentIndex]
             ];
         }
     }
 
-    // Shuffle button functionality
+    
     shuffleBtn.onclick = function() {
-        if (currentPlaylist) { // Check if currentPlaylist is defined
+        if (currentPlaylist) { 
             shufflePlaylist(currentPlaylist);
-            // Update modal view with shuffled songs
+            
             let shuffledSongsHTML = '';
             currentPlaylist.songs.forEach(song => {
                 shuffledSongsHTML += `
@@ -96,13 +97,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function createPlaylistCards(playlists) {
         const playlistCardsContainer = document.querySelector('#container');
         playlists.forEach(playlist => {
-            // Initialize likes as a number
             playlist.likes = Number(playlist.likes) || 0;
-            playlist.liked = false; // Ensure the liked property is defined
+            playlist.liked = false; 
 
             const card = document.createElement('div');
             card.classList.add('playlist-card');
-            card.setAttribute('data-id', playlist.id); // Set a data-id attribute to identify the card
+            card.setAttribute('data-id', playlist.id); 
             card.innerHTML = `
                 <img src="${playlist.playlist_art}" alt="Playlist art" class="playlist-art">
                 <h2 class="playlist-title">${playlist.playlist_name}</h2>
@@ -136,7 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    const search = document.getElementById("search");
     search.addEventListener("input", (e) => {
         const playlistCardsContainer = document.querySelector('#container');
         const value = e.target.value.toLowerCase();
@@ -146,7 +145,12 @@ document.addEventListener('DOMContentLoaded', function() {
         createPlaylistCards(filteredPlaylists);
     });
 
+    sortBtn.addEventListener('click', sortList);
 
-    // Assume `data` is defined in your data.js file
+    function sortList() {
+        const sortedPlaylists = [...data.playlists].sort((a, b) => a.playlist_name.localeCompare(b.playlist_name));
+        createPlaylistCards(sortedPlaylists);
+    }
+
     createPlaylistCards(data.playlists);
 });

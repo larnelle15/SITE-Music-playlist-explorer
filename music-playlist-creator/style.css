@@ -1,4 +1,4 @@
-/* Reset and global styles */
+
 * { 
     margin: 0;
     padding: 0;
@@ -15,7 +15,6 @@ body {
     min-height: 100vh;
 }
 
-/* Header and Footer Styles */
 header, footer {
     width: 100%;
     background: linear-gradient(90deg, #d60017, #ff6b6b);
@@ -130,7 +129,7 @@ nav ul li.separator {
     margin: 5px 0;
 }
 
-/* Like button styles */
+
 .like-btn {
     background: none;
     border: none;
